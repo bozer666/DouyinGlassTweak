@@ -1,0 +1,9 @@
+Package: com.bozer.douyinglass
+Name: Douyin Glass
+Version: 0.0.1
+Architecture: iphoneos-arm64
+Description: iOS 26 Liquid Glass effect for Douyin tab bar
+Maintainer: Bozer
+Author: Bozer
+Section: Tweaks
+Depends: firmware (>= 15.0)
