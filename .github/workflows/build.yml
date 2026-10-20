@@ -26,7 +26,15 @@ jobs:
         run: brew install ldid
 
       - name: Build package
-        run: make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+        run: |
+          set -o pipefail
+          make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1 2>&1 | tee build.log
+
+      - name: Report build failure
+        if: failure()
+        run: |
+          msg="$(tail -n 120 build.log | tr '\n' ' ' | tr -d '\r' | cut -c1-60000)"
+          printf '::error title=Build failure::%s\n' "$msg"
 
       - name: List output
         run: |
