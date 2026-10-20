@@ -4,19 +4,19 @@
 
 - (void)layoutSubviews {
     %orig;
-    [LGGlass syncTabBar:self];
+    [LGGlass syncTabBar:(UIView *)self];
 }
 
 - (void)didMoveToWindow {
     %orig;
-    [LGGlass installToggleGestureOnTabBar:self];
-    [LGGlass syncTabBar:self];
+    [LGGlass installToggleGestureOnTabBar:(UIView *)self];
+    [LGGlass syncTabBar:(UIView *)self];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     %orig;
     (void)previousTraitCollection;
-    [LGGlass refreshTabBar:self];
+    [LGGlass refreshTabBar:(UIView *)self];
 }
 
 %end
